@@ -1,0 +1,57 @@
+<div class="btn-toolbar justify-content-between toolbar" role="toolbar">
+  <div class="btn-group" role="group" class="toolbar-title">
+    <mat-icon>people</mat-icon>
+    Liste des Clients ({{resultsLength}})
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <mat-form-field class="toolbar-search">
+        <span matPrefix>&nbsp;</span>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="toolbar-button" [routerLink]="'/customer/new'">
+        <mat-icon>add</mat-icon>
+        Ajouter &nbsp;
+      </button>
+    </div>
+  </div>
+</div>
+<mat-progress-spinner *ngIf="isLoadingResults" class="loading" color="basic" mode="indeterminate" diameter="100" value="50">
+</mat-progress-spinner>
+
+<div class="mat-elevation-z2" [hidden]="isLoadingResults">
+  <mat-table [dataSource]="dataSource" matSort matSortActive="lastName" matSortDisableClear  matSortDirection="asc">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef class="small-column" mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row" class="small-column">
+        <a [routerLink]="'/customer/' + (row ? row.id : '')">{{row.id}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a [routerLink]="'/customer/' + (row ? row.id : '')">{{row.lastName}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a [routerLink]="'/customer/' + (row ? row.id : '')">
+          {{row.firstName}} 
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="50" [pageSizeOptions]="[10, 50, 100, 200]"></mat-paginator>
+</div>

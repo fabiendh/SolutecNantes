@@ -1,0 +1,35 @@
+.accordion-headers-align .mat-expansion-panel-header-title,
+.accordion-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.accordion-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.chip-list {
+  width: 100%;
+}
+
+.form {
+  /* min-width: 150px;
+  max-width: 500px; */
+  width: 100%;
+}
+
+.form-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.checkbox-margin {
+  margin: 0 10px;
+}

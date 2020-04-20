@@ -1,0 +1,103 @@
+<mat-progress-spinner *ngIf="isLoadingResults" class="loading" color="basic" mode="indeterminate" diameter="100" value="50">
+</mat-progress-spinner>
+<app-error *ngIf="error" [error]="errorMessage"></app-error>
+
+<span *ngIf="!isLoadingResults && !error">
+  <div class="btn-toolbar justify-content-between toolbar" role="toolbar">
+    <div class="btn-group" role="group">
+      <button mat-button [routerLink]="'/customer'" class="toolbar-button">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="toolbar-title">
+        {{title}}
+      </div>
+    </div>
+    <div class="input-group" *ngIf="!new">
+      <div class="input-group-prepend">
+        <button mat-raised-button color="primary" class="toolbar-button" (click)="openDeleteDialog()">
+          <mat-icon>delete</mat-icon>
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" novalidate (ngSubmit)="save()">
+    <mat-tab-group mat-stretch-tabs class="mat-elevation-z2">
+      <mat-tab label="Description">
+        <div class="mat-card">
+          <div class="row tall">
+            <div class="col-sm">
+              <mat-form-field class="half-width">
+                <input matInput placeholder="Nom" formControlName="lastName" autocomplete="name">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row tall">
+            <div class="col-sm">
+              <mat-form-field class="half-width">
+                <input matInput placeholder="Prénom" formControlName="firstName" autocomplete="given-name">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row tall">
+            <div class="col-sm">
+              <mat-form-field class="half-width">
+                <input matInput placeholder="Telephone" formControlName="telephone" autocomplete="tel">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row tall">
+            <div class="col-sm">
+              <mat-form-field class="half-width">
+                <input matInput placeholder="Email" formControlName="email" autocomplete="email">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row tall">
+            <div class="col-sm">
+              <mat-form-field class="half-width">
+                <input matInput placeholder="Date de création" formControlName="creationDate" autocomplete="date">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Commandes">
+        <mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef class="small-column"> ID </mat-header-cell>
+            <mat-cell *matCellDef="let row" class="small-column">
+              {{row.id}}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="purchaseDate">
+            <mat-header-cell *matHeaderCellDef> Date de commande </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{row.purchaseDate | date : "dd/MM/yy HH:mm:ss"}}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="articleName">
+            <mat-header-cell *matHeaderCellDef> Article </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{row.article ? row.article.name : ''}}
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+      </mat-tab>
+    </mat-tab-group>
+
+    <br />
+
+    <button mat-raised-button color="primary" [disabled]="form.pristine || form.invalid">
+      <mat-icon>save</mat-icon>
+      Enregistrer
+    </button>
+
+  </form>
+</span>

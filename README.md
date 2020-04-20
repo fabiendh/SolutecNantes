@@ -1,36 +1,27 @@
-# ASP.NET Core Demo App
+# Ginger
 
-[![Build status](https://ci.appveyor.com/api/projects/status/p3iet9wrmg8jxlmx?svg=true)](https://ci.appveyor.com/project/jincod/aspnet5demoapp)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Usage
+## Development server
 
-```bash
-npm install
-dotnet restore
-dotnet run -p src/AspNetCoreDemoApp/AspNetCoreDemoApp.csproj
-npm start
-```
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Deploy to Heroku
+## Code scaffolding
 
-### Manual
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Using custom buildpack [dotnetcore-buildpack](https://github.com/jincod/dotnetcore-buildpack)
+## Build
 
-```bash
-heroku buildpacks:set https://github.com/jincod/dotnetcore-buildpack
-heroku buildpacks:add --index 1 heroku/nodejs
-```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-[Using Multiple Buildpacks for an App](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app)
+## Running unit tests
 
-### Heroku Deploy button
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Click the button below to set up this sample app on Heroku:
+## Running end-to-end tests
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jincod/AspNet5DemoApp)
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Blog posts
+## Further help
 
-- [Deploying ASP.NET Core on heroku](https://jincod.tumblr.com/post/152290263970/deploying-aspnet-core-on-heroku)
-- [Integrate ASP.NET 5 and Webpack with Hot Module Replacement plugin](http://jincod.tumblr.com/post/135043543538/integrate-aspnet-5-and-webpack-with-hot-module)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
