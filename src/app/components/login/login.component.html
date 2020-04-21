@@ -1,28 +1,63 @@
 <br />
 <br />
-<div class="logo"><h1 class="centered">SuperApp</h1>
-</div>
+<div class="logo"><h1 class="centered">Digital DDC/MC App</h1></div>
 <br />
 <mat-card class="login-card">
   <mat-card-content>
     <h2 class="centered">Se connecter</h2>
     <hr />
     <div class="alert alert-danger" *ngIf="errorshow">
-      {{message}}</div>
-    <form name="loginForm" (ngSubmit)="login()" [formGroup]="loginForm" novalidate autocomplete="on">
+      {{ message }}
+    </div>
+    <form
+      name="loginForm"
+      (ngSubmit)="login()"
+      [formGroup]="loginForm"
+      novalidate
+      autocomplete="on"
+    >
       <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="Nom d'utilisateur AUI" id="username" name="username" formControlName="username" autocomplete="username"/>
+        <input
+          matInput
+          type="text"
+          placeholder="Nom d'utilisateur AUI"
+          id="username"
+          name="username"
+          formControlName="username"
+          autocomplete="username"
+        />
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput type="password" placeholder="Mot de passe" id="password" name="password" formControlName="password" autocomplete="current-password"/>
+        <input
+          matInput
+          type="password"
+          placeholder="Mot de passe"
+          id="password"
+          name="password"
+          formControlName="password"
+          autocomplete="current-password"
+        />
       </mat-form-field>
       <br />
       <br />
       <div class="login-button-wrapper">
-        <mat-progress-spinner *ngIf="isLoading" class="centered" color="basic" mode="indeterminate" diameter="20" value="50"></mat-progress-spinner>
-        <button *ngIf="!isLoading" mat-raised-button color="primary" [disabled]="loginForm.invalid">Connexion</button>
+        <mat-progress-spinner
+          *ngIf="isLoading"
+          class="centered"
+          color="basic"
+          mode="indeterminate"
+          diameter="20"
+          value="50"
+        ></mat-progress-spinner>
+        <button
+          *ngIf="!isLoading"
+          mat-raised-button
+          color="primary"
+          [disabled]="loginForm.invalid"
+        >
+          Connexion
+        </button>
       </div>
-
     </form>
   </mat-card-content>
 </mat-card>

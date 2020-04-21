@@ -73,9 +73,10 @@
 }
 
 .main-component {
-  // max-width: 1300px;
-  // margin-left: auto;
-  // margin-right: auto;
+  max-width: 1300px;
+  min-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 56px;
   margin-bottom: 20px;
   padding-left: 20px;
@@ -177,4 +178,30 @@
   font-size: 8pt;
   padding: 8px;
   align-self: flex-end;
+}
+
+/** 
+*
+*/
+
+.main-is-mobile .main-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.main-app-name {
+  margin-left: 8px;
+}
+
+.main-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.main-is-mobile .main-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
 }

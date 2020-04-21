@@ -13,33 +13,18 @@
 
 <span *ngIf="!isLoadingResults && !error">
   <div class="btn-toolbar justify-content-between toolbar" role="toolbar">
-    <div class="btn-group" role="group">
-      <div class="toolbar-title">
-        <form [formGroup]="form" novalidate class="form">
-          <mat-form-field class="form-full-width">
-            <mat-label>Trigramme</mat-label>
-            <input matInput />
-          </mat-form-field>
-          <br />
-          <mat-form-field class="form-full-width">
-            <mat-label>Nom de l'entité de formation</mat-label>
-            <input matInput />
-          </mat-form-field>
-        </form>
-      </div>
-    </div>
-    <div class="input-group" *ngIf="!new">
-      <div class="input-group-prepend">
-        <button
-          mat-raised-button
-          color="primary"
-          class="toolbar-button"
-          (click)="openDeleteDialog()"
-        >
-          <mat-icon>delete</mat-icon>
-          Supprimer
-        </button>
-      </div>
+    <div class="toolbar-title">
+      <form [formGroup]="form" novalidate class="form-header">
+        <mat-form-field class="form-full-width">
+          <mat-label>Trigramme</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="form-full-width">
+          <mat-label>Titre du dossier</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </form>
     </div>
   </div>
 

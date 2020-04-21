@@ -1,8 +1,12 @@
-<mat-toolbar color="primary" class="mat-elevation-z1" *ngIf="!router.url.includes('/login')">
+<mat-toolbar
+  color="primary"
+  class="mat-elevation-z1"
+  *ngIf="!router.url.includes('/login')"
+>
   <button mat-icon-button id="menu" (click)="navService.openNav()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1> <a class="nav-link nav-header" routerLink="">DDC App</a></h1>
+  <h1><a class="nav-link nav-header" routerLink="">Digital DDC/MC App</a></h1>
   <span class="fill-remaining-space"></span>
   <button mat-button [matMenuTriggerFor]="menu">
     <span>Administration</span>

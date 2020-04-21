@@ -1,8 +1,8 @@
 /*@import '~@angular/material/prebuilt-themes/indigo-pink.css';*/
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 html {
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 body {
@@ -28,8 +28,8 @@ body {
   margin-right: auto;
 }
 .wrap-word {
-  white-space: pre-wrap; 
-  overflow-wrap: break-word
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 /* Toolbar */
@@ -113,7 +113,7 @@ a:focus {
 
 /* Cards */
 .mat-card {
-  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   position: relative;
   padding: 16px;

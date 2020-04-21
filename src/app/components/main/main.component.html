@@ -1,70 +1,4 @@
-<!-- <mat-toolbar color="primary" class="mat-elevation-z3" *ngIf="!router.url.includes('/login')">
-  <button mat-icon-button (click)="snav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <h1> <a class="nav-link nav-header" routerLink="">SuperApp</a></h1>
-  <span class="fill-remaining-space"></span>
-  <button mat-button [matMenuTriggerFor]="menu">
-    <span>Administration</span>
-    <mat-icon>arrow_drop_down</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="disconnect()">
-      <mat-icon>hotel</mat-icon>
-      <span>Deconnexion</span>
-    </button>
-  </mat-menu>
-</mat-toolbar> -->
-
-<!-- <mat-sidenav-container>
-  <mat-sidenav #snav class="mat-elevation-z2" [opened]="!router.url.includes('/login')" [hidden]="router.url.includes('/login')" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" >
-    <mat-nav-list class="menu-wrap">
-      <a class="nav-link" routerLink="ddc" routerLinkActive="active">
-        <div class="row">
-          <div class="col-2">
-            <mat-icon>folder_shared</mat-icon>
-          </div>
-          <div class="col-10">DDC</div>
-          <div class="col-1">
-            <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
-              expand_more
-            </mat-icon>
-          </div>
-        </div>
-      </a>
-      <div *ngIf="expanded">
-        <a class="nav-link" routerLink="ddc/new" routerLinkActive="active">
-          <div class="row">
-            <div class="col-2">
-              <mat-icon>description</mat-icon>
-            </div>
-            <div class="col-10">Formulaire</div>
-          </div>
-        </a>
-      </div>
-      <a class="nav-link" routerLink="mc" routerLinkActive="active">
-        <div class="row">
-          <div class="col-2">
-            <mat-icon>blur_on</mat-icon>
-          </div>
-          <div class="col-10">MC</div>
-        </div>
-      </a>
-    </mat-nav-list>
-    <div class="page-footer">
-      SuperApp V{{version}} - Plateforme {{platform}} 
-    </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <div class="main-component">
-      <router-outlet></router-outlet>
-    </div>
-
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-<div class="main-container">
+<div class="main-container" [class.main-is-mobile]="mobileQuery.matches">
   <app-top-nav class="fixed-topnav" fxHide.gt-xs></app-top-nav>
   <mat-sidenav-container>
     <mat-sidenav #appDrawer mode="over" opened="false">
@@ -79,6 +13,6 @@
     <div class="main-component">
       <router-outlet></router-outlet>
     </div>
-    <div fxFlex></div>
+    <!-- <div fxFlex></div> -->
   </mat-sidenav-container>
 </div>
